@@ -10,28 +10,31 @@ import Foundation
 import UIKit
 import GameKit
 
-var indexOfSelectedQuestion: Int = 0
 
-struct QuestionModel {
-    let trivia: [[String : String]] = [
-        ["Question": "Only female koalas can whistle", "Answer": "False"],
-        ["Question": "Blue whales are technically whales", "Answer": "True"],
-        ["Question": "Camels are cannibalistic", "Answer": "False"],
-        ["Question": "All ducks are birds", "Answer": "True"]
-    ]
-    
-    func displayQuestion() -> String {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(trivia.count)
-        
-        let questionDictionary = trivia[indexOfSelectedQuestion]
-        print(questionDictionary)
-        let question = questionDictionary["Question"]
-        return question!
-        
-       
-        
-        
-            }
 
+class Question {
+    var question: String
+    var option1: String
+    var option2: String
+    var option3: String
+    var option4: String
+    var correctAnswer: String
     
+    init(question: String, option1: String, option2: String, option3: String, option4: String,correctAnswer: String){
+        self.question = question
+        self.option1 = option1
+        self.option2 = option2
+        self.option3 = option3
+        self.option4 = option4
+        self.correctAnswer = correctAnswer
+        
+    }
+   
 }
+
+//Trying creating a constant to hold the instances rather than calling them all the creating the array
+var question1 = (question: "If cats are feline and dogs are canine, what are cattle?", option1: "Bovine", option2: "Caprine", option3: "Corvine", option4: "Ovine", correctAnswer: "Bovine")
+var question2 = (question: "If cats are feline and dogs are canine, what are cattle?", option1: "Bovine", option2: "Caprine", option3: "Corvine", option4: "Ovine", correctAnswer: "Bovine")
+
+
+var allQuestions = [question1, question2]
