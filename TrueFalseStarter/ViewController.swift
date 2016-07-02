@@ -49,25 +49,23 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
+        //want to try moving this out form here and shuffling the array randomly then move through array
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
-        let questionDictionary = allQuestions[indexOfSelectedQuestion].question
         
-        questionField.text = questionDictionary
-        playAgainButton.hidden = true
-    }
-    
-    func displayAnswers() {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
+        let questionDictionary = allQuestions[indexOfSelectedQuestion].question
+        //index of selcted question may randomize ontop of the random question and create false answer
         let questionOption1 = allQuestions[indexOfSelectedQuestion].option1
         let questionOption2 = allQuestions[indexOfSelectedQuestion].option2
         let questionOption3 = allQuestions[indexOfSelectedQuestion].option3
         let questionOption4 = allQuestions[indexOfSelectedQuestion].option4
         
-        option1Button.setTitle(questionOption1, forState: .Normal)
-        option2Button.setTitle(questionOption2, forState: .Normal)
-        option3Button.setTitle(questionOption3, forState: .Normal)
-        option4Button.setTitle(questionOption4, forState: .Normal)
+        questionField.text = questionDictionary
+        option1Button.setTitle(questionOption1, forState: UIControlState.Normal)
+        option2Button.setTitle(questionOption2, forState: UIControlState.Normal)
+        option3Button.setTitle(questionOption3, forState: UIControlState.Normal)
+        option4Button.setTitle(questionOption4, forState: UIControlState.Normal)
         
+
         playAgainButton.hidden = true
     }
     
@@ -89,9 +87,12 @@ class ViewController: UIViewController {
     @IBAction func checkAnswer(sender: UIButton) {
         // Increment the questions asked counter
         questionsAsked += 1
+        //need to check I am pulling the question correctly
+        let selectedQuestionDict = allQuestions[indexOfSelectedQuestion]
         
-        let selectedQuestionDict = allQuestions[indexOfSelectedQuestion].correctAnswer
-        let correctAnswer = selectedQuestionDict
+        let correctAnswer = selectedQuestionDict.correctAnswer
+        
+        //need ot check that this is actually doing what I expect too
         if (sender == correctAnswer ) {
             correctQuestions += 1
             questionField.text = "Correct!"
