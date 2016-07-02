@@ -28,8 +28,10 @@ class ViewController: UIViewController {
 //    ]
     
     @IBOutlet weak var questionField: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var option1Button: UIButton!
+    @IBOutlet weak var option2Button: UIButton!
+    @IBOutlet weak var option3Button: UIButton!
+    @IBOutlet weak var option4Button: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
     
     
@@ -56,17 +58,26 @@ class ViewController: UIViewController {
     
     func displayAnswers() {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
-        let questionDictionary = allQuestions[indexOfSelectedQuestion].answer
+        let questionOption1 = allQuestions[indexOfSelectedQuestion].option1
+        let questionOption2 = allQuestions[indexOfSelectedQuestion].option2
+        let questionOption3 = allQuestions[indexOfSelectedQuestion].option3
+        let questionOption4 = allQuestions[indexOfSelectedQuestion].option4
         
-        questionField.text = questionDictionary
+        option1Button.setTitle(questionOption1, forState: .Normal)
+        option2Button.setTitle(questionOption2, forState: .Normal)
+        option3Button.setTitle(questionOption3, forState: .Normal)
+        option4Button.setTitle(questionOption4, forState: .Normal)
+        
         playAgainButton.hidden = true
     }
     
     
     func displayScore() {
         // Hide the answer buttons
-        trueButton.hidden = true
-        falseButton.hidden = true
+        option1Button.hidden = true
+        option2Button.hidden = true
+        option3Button.hidden = true
+        option4Button.hidden = true
         
         // Display play again button
         playAgainButton.hidden = false
@@ -103,8 +114,10 @@ class ViewController: UIViewController {
     
     @IBAction func playAgain() {
         // Show the answer buttons
-        trueButton.hidden = false
-        falseButton.hidden = false
+        option1Button.hidden = false
+        option2Button.hidden = false
+        option3Button.hidden = false
+        option4Button.hidden = false
         
         questionsAsked = 0
         correctQuestions = 0
