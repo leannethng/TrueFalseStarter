@@ -13,7 +13,7 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    let questionsPerRound = 4
+    let questionsPerRound = allQuestions.count
     var questionsAsked = 0
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
@@ -54,6 +54,15 @@ class ViewController: UIViewController {
         playAgainButton.hidden = true
     }
     
+    func displayAnswers() {
+        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
+        let questionDictionary = allQuestions[indexOfSelectedQuestion].answer
+        
+        questionField.text = questionDictionary
+        playAgainButton.hidden = true
+    }
+    
+    
     func displayScore() {
         // Hide the answer buttons
         trueButton.hidden = true
@@ -70,17 +79,16 @@ class ViewController: UIViewController {
         // Increment the questions asked counter
         questionsAsked += 1
         
-        let selectedQuestionDict = trivia[indexOfSelectedQuestion]
-        let correctAnswer = selectedQuestionDict["Answer"]
-        
-        if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
+        let selectedQuestionDict = allQuestions[indexOfSelectedQuestion].correctAnswer
+        let correctAnswer = selectedQuestionDict
+        if (sender == correctAnswer ) {
             correctQuestions += 1
             questionField.text = "Correct!"
         } else {
             questionField.text = "Sorry, wrong answer!"
         }
         
-        loadNextRoundWithDelay(seconds: 2)
+        loadNextRoundWithDelay(seconds: 1)
     }
     
     func nextRound() {
