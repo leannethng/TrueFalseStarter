@@ -7,21 +7,25 @@ import GameKit
 
 var indexOfSelectedQuestion: Int = 0
 
+
 struct QuestionModel {
-    let trivia = [
+
+    var quesiton: String
+    var answer: String
+    
+    let trivia: [[String: String]] = [
         ["Question": "Only female koalas can whistle", "Answer": "False"],
         ["Question": "Blue whales are technically whales", "Answer": "True"],
         ["Question": "Camels are cannibalistic", "Answer": "False"],
         ["Question": "All ducks are birds", "Answer": "True"]
     ]
+    
    
     
-    func displayQuestion() -> [[String]] {
+
+     func displayQuestion()  {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(trivia.count)
-      print(trivia[indexOfSelectedQuestion])
-       
-        return trivia["Question"]
-        
+        print(indexOfSelectedQuestion)
         
         
         
@@ -29,3 +33,6 @@ struct QuestionModel {
     
     
 }
+
+
+
