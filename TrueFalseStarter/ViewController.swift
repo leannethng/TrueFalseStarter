@@ -111,7 +111,7 @@ class ViewController: UIViewController {
             displayQuestion()
         }
     }
-    
+
     @IBAction func playAgain() {
         // Show the answer buttons
         option1Button.hidden = false
