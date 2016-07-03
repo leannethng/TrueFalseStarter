@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
-    var askedQuestionsArray:[Int] = []
     var gameSound: SystemSoundID = 0
     
 //    let trivia: [[String : String]] = [
@@ -50,8 +49,10 @@ class ViewController: UIViewController {
     
     func displayQuestion() {
         //want to try moving this out form here and shuffling the array randomly then move through array
-            indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
-//
+//            indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
+    
+        
+                
             let questionDictionary = allQuestions[indexOfSelectedQuestion].question
             //index of selcted question may randomize ontop of the random question and create false answer
             let questionOption1 = allQuestions[indexOfSelectedQuestion].option1
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
             option2Button.setTitle(questionOption2, forState: UIControlState.Normal)
             option3Button.setTitle(questionOption3, forState: UIControlState.Normal)
             option4Button.setTitle(questionOption4, forState: UIControlState.Normal)
-            
+          
         
         playAgainButton.hidden = true
         
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
     @IBAction func checkAnswer(sender: UIButton) {
         // Increment the questions asked counter
         questionsAsked += 1
-       
+        
         //need to check I am pulling the question correctly
 //        let selectedQuestionDict = allQuestions[indexOfSelectedQuestion]
        
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
             questionField.text = "Sorry, wrong answer!"
         }
         
-     
+        indexOfSelectedQuestion += 1
         
         loadNextRoundWithDelay(seconds: 1)
     }
@@ -117,8 +118,8 @@ class ViewController: UIViewController {
             displayScore()
         } else {
             // Continue game
-           
-            displayQuestion()
+                displayQuestion()
+            
         }
     }
 
@@ -131,11 +132,7 @@ class ViewController: UIViewController {
         
         questionsAsked = 0
         correctQuestions = 0
-        print("index full \(askedQuestionsArray)")
-        askedQuestionsArray.removeAll()
-        print("index cleaned \(askedQuestionsArray)")
-        
-        
+        indexOfSelectedQuestion = 0
         nextRound()
     }
     
