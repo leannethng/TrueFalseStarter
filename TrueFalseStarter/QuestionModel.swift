@@ -7,10 +7,6 @@
 //
 
 import Foundation
-import UIKit
-import GameKit
-import GameplayKit
-
 
 class Question {
     var question: String
@@ -34,10 +30,17 @@ class Question {
 
 //Trying creating a constant to hold the instances rather than calling them all the creating the array
 
+var question1 = (question: "If cats are feline and dogs are canine, what are cattle?", option1: "Bovine", option2: "Caprine", option3: "Corvine", option4: "Ovine", correctAnswer: "Bovine")
+var question2 = (question: "Which animal inspired Robert the Bruce of Scotland to try again?", option1: "Camel", option2: "Giraffe", option3: "Mouse", option4: "Spider", correctAnswer: "Spider")
+var question3 = (question: "Which movie is Spider Pig from", option1: "Spiderman", option2: "Family Guy", option3: "Simpsons", option4: "Babe", correctAnswer: "Simpsons")
 
 
-var allQuestions = [
-        Question(question: "If cats are feline and dogs are canine, what are cattle?", option1: "Bovine", option2: "Caprine", option3: "Corvine", option4: "Ovine", correctAnswer: "Bovine"),
-        Question(question: "Which animal inspired Robert the Bruce of Scotland to try again?", option1: "Camel", option2: "Giraffe", option3: "Mouse", option4: "Spider", correctAnswer: "Spider")
-]
+
+
+
+var allQuestions = [question1, question2, question3].shuffle()
+
+
+
+
 
