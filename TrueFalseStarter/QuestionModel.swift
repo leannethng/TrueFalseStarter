@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import GameKit
-
+import GameplayKit
 
 
 class Question {
@@ -29,7 +29,7 @@ class Question {
         self.correctAnswer = correctAnswer
         
     }
- 
+    
 }
 
 //Trying creating a constant to hold the instances rather than calling them all the creating the array
@@ -40,5 +40,4 @@ var allQuestions = [
         Question(question: "If cats are feline and dogs are canine, what are cattle?", option1: "Bovine", option2: "Caprine", option3: "Corvine", option4: "Ovine", correctAnswer: "Bovine"),
         Question(question: "Which animal inspired Robert the Bruce of Scotland to try again?", option1: "Camel", option2: "Giraffe", option3: "Mouse", option4: "Spider", correctAnswer: "Spider")
 ]
-
 

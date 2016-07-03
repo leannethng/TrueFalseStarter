@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
-    
+    var askedQuestionsArray:[Int] = []
     var gameSound: SystemSoundID = 0
     
 //    let trivia: [[String : String]] = [
@@ -50,11 +50,8 @@ class ViewController: UIViewController {
     
     func displayQuestion() {
         //want to try moving this out form here and shuffling the array randomly then move through array
-        
- 
             indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(allQuestions.count)
-            print("index at top \(indexOfSelectedQuestion)")
-            
+//
             let questionDictionary = allQuestions[indexOfSelectedQuestion].question
             //index of selcted question may randomize ontop of the random question and create false answer
             let questionOption1 = allQuestions[indexOfSelectedQuestion].option1
@@ -120,8 +117,7 @@ class ViewController: UIViewController {
             displayScore()
         } else {
             // Continue game
-//            allQuestions.removeAtIndex(indexOfSelectedQuestion)
-//            print("index at very bottom \(indexOfSelectedQuestion) and \(allQuestions.count)")
+           
             displayQuestion()
         }
     }
@@ -135,7 +131,11 @@ class ViewController: UIViewController {
         
         questionsAsked = 0
         correctQuestions = 0
-    
+        print("index full \(askedQuestionsArray)")
+        askedQuestionsArray.removeAll()
+        print("index cleaned \(askedQuestionsArray)")
+        
+        
         nextRound()
     }
     
