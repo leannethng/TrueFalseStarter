@@ -37,7 +37,7 @@ var question4 = (question: "A gosling is the young of which bird?", option1: "Du
 var question5 = (question: "What is the name of the second installment of the Elder Scrolls?", option1: "Bloodmoon", option2: "Morrowind", option3: "Daggerfall", option4: "Oblivion", correctAnswer: "Daggerfall")
 var question6 = (question:  "What is the fictional continent that the video game Fable III takes place in?", option1: "Drakengaurd", option2: "Nether Realm", option3: "Albion", option4: "Morrowind", correctAnswer: "Albion")
 var question7 = (question: "What Nintendo system was released after the N64 and before the Wii?", option1: "Gamecube", option2: "Nintendo 128", option3: "Virtual Boy", option4: "Super Nintendo", correctAnswer: "Gamecube")
-var question8 = (question: "Which popular video game features an ex-Special Forces operator named Jack Carver, who is stranded in Micronesia?", option1: "Max Payne", option2: "Halo 2", option3: "Far Cry", option4: "Left 4 Dead", correctAnswer: "Far Cry")
+var question8 = (question: "Which video game features an ex-Special Forces operator named Jack Carver, who is stranded in Micronesia?", option1: "Max Payne", option2: "Halo 2", option3: "Far Cry", option4: "Left 4 Dead", correctAnswer: "Far Cry")
 var question9 = (question: "The 1982 film Blade Runner is set in which city?", option1: "Chicago", option2: "Los Angeles", option3: "New York", option4: "Seattle", correctAnswer: "Los Angeles")
 var question10 = (question: "In the 1994 film Speed, the bomb is set to explode when the bus's speed falls below what?", option1: "40 mph", option2: "50 mph", option3: "55 mph", option4: "60 mph", correctAnswer: "50 mph")
 
